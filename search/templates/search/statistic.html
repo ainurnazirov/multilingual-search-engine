@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tt">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика</title>
+        <style>
+        body{
+            background-color: rgba(255, 255, 255, 0.49);
+        }
+        .content-app{
+
+            margin-left: 20%;
+            margin-right: 20%;
+            background-color: rgba(255, 255, 255, 0.76);
+            min-height: 500px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .app {
+
+        }
+        nav{
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        .content-app2{
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+</head>
+<body link="white" style="background-color: rgba(255,255,255,0.49);">
+<div class="app">
+    <header class="site-header sticky-top py-1 alert alert-secondary">
+      <nav class="navbar navbar-secondary">
+        <a class="py-2 d-none d-md-inline-block" style="color: #000000" onClick='location.href="/"'>Эзләү</a>
+        <a class="py-2 d-none d-md-inline-block" style="color: #000000" onClick='location.href="/statistic"'>Статистика</a>
+      </nav>
+    </header>
+
+        <div class="content-app">
+        <div class="content-app2">
+        <p></p>
+        <h1 style="text-align: center">Эзләү сораулары статистикасы</h1>
+        <p></p>
+    	<div class="panel panel-primary" style="margin-top: 10px">
+   <table class="table table-striped">
+			<thead>
+			<tr>
+				<th>Сорау</th>
+				<th>Бирү саны</th>
+                <th>Күчерелгән сорау</th>
+				<th>Бирү саны</th>
+                <th>Үсеш проценты</th>
+                <th>Вакыт</th>
+
+
+			</tr>
+			</thead>
+			<tbody>
+    {% for query in querys %}
+        <tr>
+            <td><b></b>{{query.query}}<br></td>
+            <td><b></b>{{query.n_result}}</td>
+            <td><b></b>{{query.query_t}}<br></td>
+            <td><b></b>{{query.n_result_t}}</td>
+            <td><b></b>{{query.increase}} %</td>
+            <td><b></b>{{query.search_time|date:"H:i d.m.Y"}}</td>
+
+        </tr>
+    {% endfor %}
+</tbody>
+    </table>
+
+        </div>
+        </div>
+        </div>
+</div>
+
+
+</body>
+</html>
